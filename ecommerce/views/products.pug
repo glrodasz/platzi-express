@@ -1,6 +1,25 @@
-ul
-    each product in products
-        li
-            strong= product.name
-            p= product.price
-            p Comprar
+extends layout.pug
+
+block hero
+    section.hero.is-dark.is-bold
+        .hero-body
+            .container
+                h1.title Octolion Shop
+                h2.subtitle Find the best products a the best price
+
+block content
+    .container(style="flex: 1; padding: 50px 0;")
+        .columns.is-multiline
+            each product in products
+                .column.is-one-quarter
+                    .card
+                        .card-image
+                            figure.image(style="height: 190px")
+                                img(src=product.image style="height: 100%; object-fit: cover")
+                        .card-content
+                            h1.title= product.name
+                            .button.is-fullwidth.is-primary
+                                span.icon
+                                    i.fas.fa-shopping-cart
+                                span Add to cart
+                                strong= `${product.price} USD`
