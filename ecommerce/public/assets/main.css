@@ -1,0 +1,73 @@
+:root {
+  --primary-color: #d31a1a;
+  --primary-color-darker: #bf0908;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding: 50px 15px;
+}
+
+.main-hero {
+  position: relative;
+  background: url("/static/images/hero-bg.jpg");
+  background-size: cover;
+  background-position: center bottom;
+}
+
+.main-hero::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.logo {
+  width: 130px;
+}
+
+.logo.is-large {
+  width: 200px;
+}
+
+.divider {
+  border-top: 1px solid currentColor;
+  padding-top: 10px;
+}
+
+figure.cover-figure {
+  height: 190px;
+}
+
+img.cover-image {
+  height: 100%;
+  object-fit: cover;
+}
+
+.footer {
+  border-top: 5px solid var(--primary-color);
+}
+
+/* Bulma overrides */
+.button.is-primary,
+.navbar.is-primary {
+  background: var(--primary-color);
+}
+
+.button.is-primary:hover,
+.button.is-primary:active {
+  background: var(--primary-color-darker);
+}
+
+.icon.has-text-primary {
+  color: var(--primary-color) !important;
+}
