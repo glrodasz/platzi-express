@@ -7,6 +7,8 @@ const productService = new ProductsService();
 router.get("/", async function(req, res, next) {
   const { tags } = req.query;
 
+  console.log("req", req.query);
+
   try {
     const products = await productService.getProducts({ tags });
 
@@ -21,6 +23,8 @@ router.get("/", async function(req, res, next) {
 
 router.get("/:productId", async function(req, res, next) {
   const { productId } = req.params;
+
+  console.log("req", req.params);
 
   try {
     const product = await productService.getProduct({ productId });
@@ -37,12 +41,14 @@ router.get("/:productId", async function(req, res, next) {
 router.post("/", async function(req, res, next) {
   const { body: product } = req;
 
+  console.log("req", req.body);
+
   try {
-    const product = await productService.createProduct({ product });
+    const createdProduct = await productService.createProduct({ product });
 
     res.status(201).json({
-      data: product,
-      message: "products listed"
+      data: createdProduct,
+      message: "product created"
     });
   } catch (err) {
     next(err);
@@ -52,11 +58,17 @@ router.post("/", async function(req, res, next) {
 router.put("/:productId", async function(req, res, next) {
   const { productId } = req.params;
   const { body: product } = req;
+
+  console.log("req", req.params, req.body);
+
   try {
-    const updatedProduct = productService.updateProduct({ productId, product });
+    const updatedProduct = await productService.updateProduct({
+      productId,
+      product
+    });
     res.status(200).json({
       data: updatedProduct,
-      message: "products updated"
+      message: "product updated"
     });
   } catch (err) {
     next(err);
@@ -66,12 +78,14 @@ router.put("/:productId", async function(req, res, next) {
 router.delete("/:productId", async function(req, res, next) {
   const { productId } = req.params;
 
+  console.log("req", req.params);
+
   try {
-    const product = productService.deleteProduct({ productId });
+    const deletedProduct = await productService.deleteProduct({ productId });
 
     res.status(200).json({
-      data: product,
-      message: "products deleted"
+      data: deletedProduct,
+      message: "product deleted"
     });
   } catch (err) {
     next(err);
