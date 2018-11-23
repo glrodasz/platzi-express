@@ -6,6 +6,9 @@
   "scripts": {
     "start": "node index",
     "dev": "nodemon index",
+    "dev:inspect": "nodemon --inspect index",
+    "dev:debug": "DEBUG=express:*,app:* npm run dev",
+    "debug": "DEBUG=express:*,app:* npm run start",
     "test": "mocha --exit"
   },
   "keywords": [],
@@ -15,6 +18,7 @@
     "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
     "boom": "^7.2.2",
+    "debug": "^4.1.0",
     "dotenv": "^6.1.0",
     "express": "^4.16.4",
     "joi": "^14.1.0",
