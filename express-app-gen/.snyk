@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.14.1
+version: v1.19.0
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
@@ -57,3 +57,9 @@ patch:
         patched: '2020-05-01T07:53:16.484Z'
     - pug > pug-code-gen > pug-attrs > constantinople > babel-types > lodash:
         patched: '2020-05-01T07:53:16.484Z'
+    - pug > pug-code-gen > constantinople > babel-types > lodash:
+        patched: '2020-09-04T08:09:50.747Z'
+    - pug > pug-filters > constantinople > babel-types > lodash:
+        patched: '2020-09-04T08:09:50.747Z'
+    - pug > pug-code-gen > pug-attrs > constantinople > babel-types > lodash:
+        patched: '2020-09-04T08:09:50.747Z'
